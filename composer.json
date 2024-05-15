@@ -1,0 +1,19 @@
+{
+    "name": "lucas/sistema-coude",
+    "type": "composer-json",
+    "autoload": {
+        "psr-4": {
+            "SistemaCoude\\": "src/"
+        },
+        "files": [
+            "src/config.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Lucas Menezes",
+            "email": "lm.si@outlook.com"
+        }
+    ],
+    "require": {}
+}
