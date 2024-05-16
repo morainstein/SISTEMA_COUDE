@@ -1,5 +1,5 @@
 {
-    "name": "lucas/sistema-coude",
+    "name": "lucas/sistema_coude",
     "type": "composer-json",
     "autoload": {
         "psr-4": {
@@ -13,6 +13,30 @@
         {
             "name": "Lucas Menezes",
             "email": "lm.si@outlook.com"
+        },
+        {
+            "name": "Nicholas Morais",
+            "email": "nichroberto@gmail.com"
+        },
+        {
+            "name": "John Rodrigues",
+            "email": "jhon_cr00@hotmail.com"
+        },
+        {
+            "name": "Paulo Dantas",
+            "email": "pedroptorres@outlook.com"
+        },
+        {
+            "name": "Marcos Mendes",
+            "email": "diogenes_deija@yahoo.com.br"
+        },
+        {
+            "name": "Paulo Rios",
+            "email": "paulorlrios@gmail.com"
+        },
+        {
+            "name": "Yuri Guilherme",
+            "email": "yg629951@gmail.com"
         }
     ],
     "require": {}

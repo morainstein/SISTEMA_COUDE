@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema system_coude
+-- Schema sistema_coude
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema system_coude
+-- Schema sistema_coude
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `system_coude` DEFAULT CHARACTER SET utf8 ;
-USE `system_coude` ;
+CREATE SCHEMA IF NOT EXISTS `sistema_coude` DEFAULT CHARACTER SET utf8 ;
+USE `sistema_coude` ;
 
 -- -----------------------------------------------------
--- Table `system_coude`.`Usuarios`
+-- Table `sistema_coude`.`Usuarios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `system_coude`.`Usuarios` (
+CREATE TABLE IF NOT EXISTS `sistema_coude`.`Usuarios` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(50) NOT NULL,
   `login` VARCHAR(45) NOT NULL,
