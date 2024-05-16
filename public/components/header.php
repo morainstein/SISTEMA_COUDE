@@ -10,4 +10,5 @@
     <header>
       <h1>Coude</h1>
     </header>
+    <main>    
   
