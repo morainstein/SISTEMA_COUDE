@@ -1,0 +1,11 @@
+footer{
+  text-align: center;
+
+  padding: 2rem;
+
+  background: var(--cinza);
+}
+
+footer > p{
+  display: block;
+}

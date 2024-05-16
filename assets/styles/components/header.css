@@ -1,0 +1,10 @@
+header{
+  padding: 2rem;
+  background: var(--gradiente-azul-preto);
+}
+
+header > h1{
+
+  font-size: 9.4rem;
+  color: var(--amarelo);
+}

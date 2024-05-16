@@ -1,0 +1,20 @@
+aside{
+  
+  background-color: var(--preto);
+  height: 100%;
+  width: 15%;
+}
+
+aside > nav > ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+aside > nav > ul > li{
+  padding: 1rem;
+}
+
+aside > nav > ul > li > a{
+  color: var(--branco);
+}
