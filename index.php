@@ -1,5 +1,5 @@
 <?php 
 
-header("Location: ./public/");
+include_once __DIR__ . DIRECTORY_SEPARATOR ."src" . DIRECTORY_SEPARATOR . "functions.php";
 
 ?>

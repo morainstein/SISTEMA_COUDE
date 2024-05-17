@@ -17,16 +17,16 @@ class Usuarios {
     public function cadastrar($nome, $login, $senha){
         $dados = [
             "nome" => $nome,
-            "login" => $login,
+            "email" => $login,
             "senha" => password_hash($senha, PASSWORD_DEFAULT) 
         ];
 
         return $this->model->insertUsuario($dados)->result;
     }
 
-    public function logar($login, $senha){
+    public function logar($email, $senha){
         $conditions = [
-            ['login', $login], 
+            ['email', $email], 
         ];
 
         $response = $this->model->selectUsuario('*',$conditions)->result;
