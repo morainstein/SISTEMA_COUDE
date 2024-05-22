@@ -7,12 +7,14 @@ use Exception;
 class ReturnFormat {
   public $result;
   public String|Null $result_error;
+  public Int|Bool|Null $id_log;
   public String|Bool|Null $sql;
 
-  function __construct($result, String|Null $result_error, String|Bool|Null $sql) {
-    $this->result = $result;
+  function __construct($result, String|Null $result_error, Int|Null $id_log, String|Bool|Null $sql) {
+    $this->result       = $result;
     $this->result_error = $result_error;
-    $this->sql = $sql;
+    $this->id_log       = $id_log;
+    $this->sql          = $sql;
   }
 }
 
@@ -89,8 +91,26 @@ class Connection {
       $this->sql_exec_result_error = "Connection is null.";
     }
 
+    $id_log = null;
+    if($this->sql_exec_result === false){
+      $SQL = "INSERT INTO logs (erro, auxiliar) VALUES (?,?)";
+      $stmt = $this->connection->prepare($SQL);
+
+      $values_log = [$this->sql_exec_result_error, $sql . " --- user - " . @$_SESSION['id_usuario']];
+      $count = 1;
+      foreach($values_log as $k => $v) {
+        $stmt->bindParam($count, $values_log[$k]);
+        
+        $count++;
+      }
+      
+      $stmt->execute();
+
+      $id_log = $this->connection->lastInsertId();
+    }
+
     $this->closeConnection();
 
-    return new ReturnFormat($this->sql_exec_result, $this->sql_exec_result_error, $sql);
+    return new ReturnFormat($this->sql_exec_result, $this->sql_exec_result_error, $id_log, $sql);
   }
 }

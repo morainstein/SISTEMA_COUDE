@@ -1,0 +1,3 @@
+cada polo/unidade terá um adm_master ou será um tipo só pra cada?
+
+usuario realmente precisa se vincular a um polo, sendo que ja estaria vinculado a unidade que está vinculada ao polo? (possibilidade de transitar entre polos?!)

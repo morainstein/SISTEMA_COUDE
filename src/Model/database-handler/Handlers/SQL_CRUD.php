@@ -1,6 +1,7 @@
 <?php
-
 namespace Handlers;
+
+require_once __DIR__ . DIRECTORY_SEPARATOR . "Connection.php";
 
 use Handlers\ReturnFormat;
 use Handlers\Connection;
@@ -11,14 +12,13 @@ class SQL_CRUD extends Connection{
 
   private function returnProcessedData($v){
     if(empty($v) && is_string($v) && $v != 0){
-      return "NULL";
+      return null;
     } else {
       return $v;
     }
   }
 
   private function checksIfIsArrayAndReturns(Array|String|Int|Float|Null $data, String $implode_separator = ", ") : String|Int|Float|Null {
-    echo "<br>";
     if(is_array($data)){
       return implode($implode_separator, $data);
     } else {
@@ -46,13 +46,19 @@ class SQL_CRUD extends Connection{
     return $values;
   }
 
-  private function prepareConditions(Array|Null $conditions) : String|Array|Bool{
+  private function prepareConditions(Array|Null $conditions, Bool $is_on = false) : String|Array|Bool{
+    $GLOBALS["func_prepareconditions_is_on"] = $is_on;
     if(!empty($conditions)){
       if(is_array($conditions)){
         $processed_data = array_map(function($v){
           if (is_array($v)) {
             $column = $v[0];
-            return "$column = '".$v[1]."'";
+
+            if($GLOBALS["func_prepareconditions_is_on"]){
+              return "$column = ".$v[1];
+            } else {
+              return "$column = '".$v[1]."'";
+            }
           } else {
             return $v;
           }
@@ -98,7 +104,7 @@ class SQL_CRUD extends Connection{
 
       foreach($table as $key => $values){
         if(is_array($values)){
-          $on_txt = $this->prepareConditions($values);
+          $on_txt = $this->prepareConditions($values, true);
   
           if($on_txt && !empty($on_txt)){
             array_push($new_table_value, $key . ' ON ' . $on_txt);

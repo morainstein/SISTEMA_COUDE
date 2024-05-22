@@ -17,19 +17,19 @@ class Usuarios {
     public function cadastrar($nome, $login, $senha){
         $dados = [
             "nome" => $nome,
-            "email" => $login,
+            "login" => $login,
             "senha" => password_hash($senha, PASSWORD_DEFAULT) 
         ];
 
-        return $this->model->insertUsuario($dados)->result;
+        return $this->model->insert($dados)->result;
     }
 
-    public function logar($email, $senha){
+    public function logar($login, $senha){
         $conditions = [
-            ['email', $email], 
+            ['login', $login], 
         ];
 
-        $response = $this->model->selectUsuario('*',$conditions)->result;
+        $response = $this->model->select('*',$conditions)->result;
 
         if($response !== false){
             $user_info = $response[0];
